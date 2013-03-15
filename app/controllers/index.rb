@@ -6,12 +6,16 @@ end
 post '/login' do
   # take params to authenticate user
   # give session token
+  User.find_by_email_and_password(params[:email], params[:password])
+
   redirect '/home'
 end
 
 post '/signup' do
   # take params and create new user
   # assign session token
+  raise params.inspect
+  User.create(params)
   redirect '/home'
 end
 
@@ -35,7 +39,6 @@ post '/guess' do
   # increment :card_id
   redirect 
 end
-
 
 get '/results' do
   # Destroy session[:deck_id] and session[:card_id]
