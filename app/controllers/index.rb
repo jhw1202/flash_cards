@@ -4,14 +4,14 @@ get '/' do
 end
 
 post '/login' do
-  #take params to authenticate user
-  #give session token
+  # take params to authenticate user
+  # give session token
   redirect '/home'
 end
 
 post '/signup' do
-  #take params and create new user
-  #assign session token
+  # take params and create new user
+  # assign session token
   redirect '/home'
 end
 
