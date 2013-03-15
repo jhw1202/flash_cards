@@ -25,6 +25,7 @@ end
 get '/home' do
   # Choose a deck to start a round
   # See results from past rounds (link to '/history')
+  @user = User.find_by_token(session[:token])
   erb :home
 end
 
