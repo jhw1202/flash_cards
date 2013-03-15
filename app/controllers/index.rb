@@ -6,15 +6,18 @@ end
 post '/login' do
   # take params to authenticate user
   # give session token
-  User.find_by_email_and_password(params[:email], params[:password])
-
-  redirect '/home'
+  user = User.find_by_email_and_password(params[:email], params[:password])
+  if user
+    session[:token] = user.token
+    redirect '/home'
+  else
+    redirect '/'
+  end
 end
 
 post '/signup' do
   # take params and create new user
   # assign session token
-  raise params.inspect
   User.create(params)
   redirect '/home'
 end
