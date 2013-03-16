@@ -1,9 +1,157 @@
 .container {
+  height: 650px;
   margin: 20px auto;
-  width: 600px;
+  width: 800px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  background-image:url('../img/bg.jpg');
+  background-repeat: no-repeat;
+  background-position: top;
+  background-attachment: fixed;
 }
-th {
-  text-align: left;
+
+.inactive {
+  display: none;
 }
+
+
+@font-face {
+  font-family: jeopardy;
+  src: url('../fonts/jeopardy.ttf');
+}
+
+
+@font-face {
+  font-family: jeopardy_clue;
+  src: url('../fonts/jeopardy_clue.ttf');
+}
+
+
+@font-face {
+  font-family: jeopardy_bold;
+  src: url('../fonts/jeopardy_bold.ttf');
+}
+
+
+h1.main-title {
+  font-family: jeopardy_bold;
+  text-align: center;
+  font-size: 3.3em;
+  color: orange;
+  margin-top:0;
+  padding-top:0;
+}
+
+h2.main-header {
+  color: white;
+  text-align: center;
+  font-family: jeopardy;
+  margin-top: 93px;
+  font-size: 2em;
+}
+
+.main-header ul {
+  padding: 0;
+  margin: 0;
+
+}
+
+.login {
+  padding: 20px 0px 0px 0px;
+}
+
+.login li {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  color: white;
+}
+
+.signup {
+  padding: 20px 0px 0px 0px;
+}
+
+.signup li {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  color: white;
+}
+
+.toggle-link {
+  color: white;
+}
+
+.index-button {
+  border:1px solid #96f0ff; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-shadow: 0px 0px 0 rgba(0,0,0,0.3);font-weight:bold; text-align: center; color: #0055FF; background-color: #cef8ff;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#cef8ff), to(#7fe0f8));
+  background-image: -webkit-linear-gradient(top, #cef8ff, #7fe0f8);
+  background-image: -moz-linear-gradient(top, #cef8ff, #7fe0f8);
+  background-image: -ms-linear-gradient(top, #cef8ff, #7fe0f8);
+  background-image: -o-linear-gradient(top, #cef8ff, #7fe0f8);
+  background-image: linear-gradient(to bottom, #cef8ff, #7fe0f8);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#cef8ff, endColorstr=#7fe0f8);
+}
+
+.index-button:hover{
+  border:1px solid #68e9ff; background-color: #9bf1ff;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#9bf1ff), top(#4fd4f5));
+  background-image: -webkit-linear-gradient(top, #9bf1ff, #4fd4f5);
+  background-image: -moz-linear-gradient(top, #9bf1ff, #4fd4f5);
+  background-image: -ms-linear-gradient(top, #9bf1ff, #4fd4f5);
+  background-image: -o-linear-gradient(top, #9bf1ff, #4fd4f5);
+  background-image: linear-gradient(to bottom, #9bf1ff, #4fd4f5);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#9bf1ff, endColorstr=#4fd4f5);
+}
+
+#floating-link {
+  margin-right: 50px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 100px;
+  height: 50px;
+  overflow: hidden;
+  color: white;
+  line-height:50px;
+  text-align: center;
+  text-decoration:none;
+  -webkit-border-bottom-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#cef8ff), to(#7fe0f8));
+  background-image: -webkit-linear-gradient(top, #cef8ff, #7fe0f8);
+  background-image: -moz-linear-gradient(top, #cef8ff, #7fe0f8);
+  background-image: -ms-linear-gradient(top, #cef8ff, #7fe0f8);
+  background-image: -o-linear-gradient(top, #cef8ff, #7fe0f8);
+  background-image: linear-gradient(to bottom, #cef8ff, #7fe0f8);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#cef8ff, endColorstr=#7fe0f8);
+}
+
+#floating-link:hover {
+  margin-right: 50px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 100px;
+  height: 50px;
+  overflow: hidden;
+  color: white;
+  line-height:50px;
+  text-align: center;
+  text-decoration:none;
+  -webkit-border-bottom-right-radius: 20px;
+  -webkit-border-bottom-left-radius: 20px;
+  -moz-border-radius-bottomright: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#9bf1ff), top(#4fd4f5));
+  background-image: -webkit-linear-gradient(top, #9bf1ff, #4fd4f5);
+  background-image: -moz-linear-gradient(top, #9bf1ff, #4fd4f5);
+  background-image: -ms-linear-gradient(top, #9bf1ff, #4fd4f5);
+  background-image: -o-linear-gradient(top, #9bf1ff, #4fd4f5);
+  background-image: linear-gradient(to bottom, #9bf1ff, #4fd4f5);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#9bf1ff, endColorstr=#4fd4f5);
+}
+

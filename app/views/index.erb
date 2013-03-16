@@ -1,20 +1,27 @@
-<h1>Super Flash Card Bros.</h1>
-<form id="login" action="/login" method="post">
-  <h2>Log In and Get Smarter.</h2>
-  <label for="email">Email:</label>
-  <input type="text" id="email" name="user[email]" placeholder="you@example.com"><br>
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="user[password]">
-  <input type="submit" value="Get Smarter!">
+<h1 class="main-title">Let's play Jeopardy</h1>
+
+<form id="login" action="/login" method="post" class="index-form">
+  <h2 class="main-header">Login to play</h2>
+  <ul class="login">
+    <li><a class="toggle-link" href="">Create Account</a></li><br><br><br><br><br>
+    <li><label for="email">Email:</label></li>
+    <li><input type="text" name="user[email]" placeholder="you@example.com"></li><br>
+    <li><label for="password">Password:</label></li>
+    <li><input type="password" name="user[password]"></li><br><br><br><br><br>
+    <li><input class="index-button" type="submit" value="Login"></li>
+  </ul>
 </form>
 
-<form id="signup" action="/signup" method="post">
-  <h2>Sign Up and Get Smart.</h2>
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="user[name]" placeholder="Chuck Norris"><br>
-  <label for="email">Email:</label>
-  <input type="text" id="email" name="user[email]" placeholder="expert@punching.org"><br>
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="user[password]">
-  <input type="submit" value="Get Smart!">
+<form id="signup" action="/signup" method="post" class="index-form inactive">
+  <h2 class="main-header">Sign Up</h2>
+  <ul class="signup">
+    <li><a class="toggle-link" href="">Login</a></li><br><br><br>
+    <li><label for="name">Name:</li>
+    <li><input type="text" name="user[name]" placeholder="Chuck Norris"></label></li><br>
+    <li><label for="email">Email:</label></li>
+    <li><input type="text" name="user[email]" placeholder="you@example.com"></li><br>
+    <li><label for="password">Password:</label></li>
+    <li><input type="password" name="user[password]"></li><br><br><br><br>
+    <li><input class="index-button" type="submit" value="Create"></li>
+  </ul>
 </form>
