@@ -2,19 +2,19 @@
 <form id="login" action="/login" method="post">
   <h2>Log In and Get Smarter.</h2>
   <label for="email">Email:</label>
-  <input type="text" id="email" name="email" placeholder="you@example.com"><br>
+  <input type="text" id="email" name="user[email]" placeholder="you@example.com"><br>
   <label for="password">Password:</label>
-  <input type="password" id="password" name="password">
+  <input type="password" id="password" name="user[password]">
   <input type="submit" value="Get Smarter!">
 </form>
 
 <form id="signup" action="/signup" method="post">
   <h2>Sign Up and Get Smart.</h2>
   <label for="name">Name:</label>
-  <input type="text" id="name" name="name" placeholder="Chuck Norris"><br>
+  <input type="text" id="name" name="user[name]" placeholder="Chuck Norris"><br>
   <label for="email">Email:</label>
-  <input type="text" id="email" name="email" placeholder="expert@punching.org"><br>
+  <input type="text" id="email" name="user[email]" placeholder="expert@punching.org"><br>
   <label for="password">Password:</label>
-  <input type="password" id="password" name="password">
+  <input type="password" id="password" name="user[password]">
   <input type="submit" value="Get Smart!">
 </form>
