@@ -1,0 +1,11 @@
+<h1><%= @deck.name %></h1>
+<% @notifications.each do |notif| %>
+	<h2><%= notif %></h2>
+<% end %>
+<span><%= @progress %>% Complete</span>
+<h3><%= @card.question %></h3>
+
+<form action="/card/<%= @card.id %>/answer" method="post">
+	<input type="text" name="answer" />
+	<input type="submit" value="Answer" />
+</form>
