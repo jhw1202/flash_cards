@@ -47,16 +47,8 @@ get '/home' do
   # Choose a deck to start a round
   # See results from past rounds (link to '/history')
   @user = User.find_by_token(session[:token])
+  @decks = Deck.all
   erb :home
-end
-
-get '/round' do
-  redirect '/' unless @current_user
-  # Set a session[:deck_id] and session[:card_id]
-  # Shows the user the next card in the deck
-  # Takes a guess in an input field
-  # Records the guess as either correct or incorrect; associates guess with card
-  erb :round
 end
 
 post '/guess' do
