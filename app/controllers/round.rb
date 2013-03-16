@@ -20,8 +20,6 @@ get '/round/:deck_name' do
   end
 end
 
-
-
 post '/answer' do 
   current_guess = Guess.create(session[:current_round_id], session[:currrent_card_id])
   if Card.find(session[:current_card_id]).answer.downcase == params[:guess].downcase
@@ -31,5 +29,4 @@ post '/answer' do
   end
 
   redirect "/round/#{Deck.find(Round.find(session[:current_round_id].deck_id))}"
-
 end

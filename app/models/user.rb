@@ -16,13 +16,14 @@ class User < ActiveRecord::Base
   include BCrypt
 
   def bcrypt_password
-  	@entered_password = @password
-    self.password = Password.create(@password)
+  	@entered_password = self.password
+    self.password = Password.create(self.password)
   end
 
   def self.authenticate(email, password)
+    
     @user = User.find_by_email(email)
-    if Password.new(@user.password) == password
+    if @user && BCrypt::Password.new(@user.password) == password
       return @user
     end
     return nil

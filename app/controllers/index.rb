@@ -10,7 +10,9 @@ end
 post '/login' do
   # take params to authenticate user
   # give session token
-  user = User.authenticate(params[:email], params[:password])
+
+  user = User.authenticate(params[:user][:email], params[:user][:password])
+
   if user
     assign_token(user)
     redirect '/home'
@@ -28,7 +30,7 @@ post '/signup' do
     assign_token(user)
     redirect '/home'
   else
-    puts @errors = user.errors.full_messages
+    @errors = user.errors.full_messages
     erb :index
   end
 end
