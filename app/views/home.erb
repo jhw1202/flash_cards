@@ -1,1 +1,13 @@
 <h1><%= @user.name %></h1>
+
+<h2>Choose a Deck</h2>
+<ul>
+	<% all_decks = [] %>
+	<% @decks.each do |deck| %>
+		<% all_decks << deck %>
+	<% end %>
+	<% deck_selection = all_decks.sample(5) %>
+	<% deck_selection.each do |deck| %>
+	<li><a href="/deck/<%= deck.name %>"><%= deck.name %></a></li>
+	<% end %>
+</ul>
