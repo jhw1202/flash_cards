@@ -2,4 +2,4 @@
 <h4>Number of Cards: <%= @deck.cards.count %></h4>
 <span>Times played: <%= @rounds.count %></span>
 <br/>
-<a href="/deck/<%= @deck.name %>/play"><%= @new_game ? "Play" : "Continue" %></a>
+<a href="/deck/<%= @deck.id %>/play"><%= @new_game ? "Play" : "Continue" %></a>

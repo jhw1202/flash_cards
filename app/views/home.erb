@@ -8,6 +8,6 @@
 	<% end %>
 	<% deck_selection = all_decks.sample(5) %>
 	<% deck_selection.each do |deck| %>
-	<li><a href="/deck/<%= deck.name %>"><%= deck.name %></a></li>
+	<li><a href="/deck/<%= deck.id %>"><%= deck.name %></a></li>
 	<% end %>
 </ul>

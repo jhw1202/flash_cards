@@ -4,7 +4,7 @@
 <h3><%= @card.answer %></h3>
 <% if @round.guesses.count == @deck.cards.count%>
 <div>Game Finished!</div>
-<a href="/deck/<%= @deck.name %>/play">Go to Results</a>
+<a href="/deck/<%= @deck.id %>/play">Go to Results</a>
 <% else %>
-<a href="/deck/<%= @deck.name %>/play">Next Question</a>
+<a href="/deck/<%= @deck.id %>/play">Next Question</a>
 <%end%>

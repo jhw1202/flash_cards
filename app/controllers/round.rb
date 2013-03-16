@@ -5,8 +5,8 @@ before do
   @notifications = []
 end
 
-get '/deck/:deck_name' do
-  @deck = Deck.find_by_name(params[:deck_name])
+get '/deck/:deck_id' do
+  @deck = Deck.find(params[:deck_id])
   @rounds = Round.where('user_id = ? AND deck_id = ?', @current_user.id, @deck.id)
   @cards = @deck.cards
   @new_game = true
@@ -20,8 +20,8 @@ get '/deck/:deck_name' do
   erb :deck
 end
 
-get '/deck/:deck_name/play' do
-  @deck = Deck.find_by_name(params[:deck_name]) 
+get '/deck/:deck_id/play' do
+  @deck = Deck.find(params[:deck_id]) 
   @round = Round.where('user_id = ? AND deck_id = ?', @current_user.id, @deck.id).last
   @cards = @deck.cards
   if @round && @round.guesses.count < @cards.count
@@ -31,10 +31,10 @@ get '/deck/:deck_name/play' do
     end
   # elsif @round && @round.guesses.count == @cards.count && session.has_key(:finished) == false
   #   session[:finished] = "0"  
-  #   redirect "/deck/#{params[:deck_name]}/play"  
+  #   redirect "/deck/#{params[:deck_id]}/play"  
   elsif @round && @round.guesses.count == @deck.cards.count
     puts "HELLO!"
-    redirect "/deck/#{params[:deck_name]}/finished_deck"
+    redirect "/deck/#{params[:deck_id]}/finished_deck"
   else
     # session[:finished] = nil
     @round = Round.create(user_id: @current_user.id, deck_id: @deck.id) #changed from Round.new to Round.create
@@ -62,14 +62,14 @@ post '/card/:id/answer' do
   session["#{@deck.name}_card"] = nil
 
   if @guess.correct
-    redirect "/deck/#{@deck.name}/play?correct=true"
+    redirect "/deck/#{@deck.id}/play?correct=true"
   else
     erb :card
   end
 end
 
-get '/deck/:deck_name/finished_deck' do
-  @deck = Deck.find_by_name(params[:deck_name])
+get '/deck/:deck_id/finished_deck' do
+  @deck = Deck.find(params[:deck_id])
   @round = Round.where('user_id = ? AND deck_id = ?', @current_user.id, @deck.id).last
   erb :finished_deck 
 end
