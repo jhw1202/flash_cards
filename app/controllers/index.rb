@@ -33,6 +33,13 @@ post '/signup' do
   end
 end
 
+get '/logout' do
+  @current_user.token = nil
+  @current_user.save
+  session.delete(:token)
+  redirect '/'
+end
+
 get '/home' do
   redirect '/' unless @current_user
   # Choose a deck to start a round
