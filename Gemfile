@@ -14,6 +14,7 @@ gem 'activesupport'
 gem 'activerecord'
 gem 'bcrypt-ruby'
 gem 'rake'
+gem 'levenshtein'
 
 group :test do
   gem 'faker'
