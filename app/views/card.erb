@@ -2,5 +2,9 @@
 <h2>Wrong Answer</h2>
 <h3><%= @card.question %></h3>
 <h3><%= @card.answer %></h3>
-
+<% if @round.guesses.count == @deck.cards.count%>
+<div>Game Finished!</div>
+<a href="/deck/<%= @deck.name %>/play">Go to Results</a>
+<% else %>
 <a href="/deck/<%= @deck.name %>/play">Next Question</a>
+<%end%>

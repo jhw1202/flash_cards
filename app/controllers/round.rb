@@ -21,19 +21,30 @@ get '/deck/:deck_name' do
 end
 
 get '/deck/:deck_name/play' do
-  @deck = Deck.find_by_name(params[:deck_name])
+  @deck = Deck.find_by_name(params[:deck_name]) 
   @round = Round.where('user_id = ? AND deck_id = ?', @current_user.id, @deck.id).last
   @cards = @deck.cards
   if @round && @round.guesses.count < @cards.count
     @guessed_card_ids = @round.guesses.map { |guess| guess.card.id }
-    @cards = @cards.reject do |card|
+    @cards = @cards.reject do |card|  
       @guessed_card_ids.include? card.id
     end
+  # elsif @round && @round.guesses.count == @cards.count && session.has_key(:finished) == false
+  #   session[:finished] = "0"  
+  #   redirect "/deck/#{params[:deck_name]}/play"  
+  elsif @round && @round.guesses.count == @deck.cards.count
+    puts "HELLO!"
+    redirect "/deck/#{params[:deck_name]}/finished_deck"
   else
-    @round = Round.new(user_id: @current_user.id, deck_id: @deck.id)
+    # session[:finished] = nil
+    @round = Round.create(user_id: @current_user.id, deck_id: @deck.id) #changed from Round.new to Round.create
   end
   @card = session["#{@deck.name}_card"] ||= @cards.sample
   @progress = (@round.guesses.count / @deck.cards.count.to_f * 100).to_i
+  # puts @round.guesses.count
+  # puts @deck.cards.count
+
+  # erb :finished_deck if @round.guesses.count == @deck.cards.count - 1
   @notifications = ["That was correct!"] if params[:correct]
   erb :play
 end
@@ -55,4 +66,10 @@ post '/card/:id/answer' do
   else
     erb :card
   end
+end
+
+get '/deck/:deck_name/finished_deck' do
+  @deck = Deck.find_by_name(params[:deck_name])
+  @round = Round.where('user_id = ? AND deck_id = ?', @current_user.id, @deck.id).last
+  erb :finished_deck 
 end
