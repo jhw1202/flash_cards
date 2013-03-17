@@ -1,10 +1,15 @@
-<h1><%= @deck.name %></h1>
-<h2>Wrong Answer</h2>
-<h3><%= @card.question %></h3>
-<h3><%= @card.answer %></h3>
-<% if @round.guesses.count == @deck.cards.count%>
-<div>Game Finished!</div>
-<a href="/deck/<%= @deck.id %>/play">Go to Results</a>
-<% else %>
-<a href="/deck/<%= @deck.id %>/play">Next Question</a>
-<%end%>
+<div class="tv">
+  <h2><%= @deck.name %></h2>
+  <div class="progress"><%= @progress %>% Complete</div>
+    <div id="wrong-answer">Wrong Answer</div>
+    <h4><%= @card.question %></h4>
+    <div class="display-answer">What is <%= @card.answer %></div>
+    <div>
+      <% if @round.guesses.count == @deck.cards.count%>
+      <!-- <div class="display-finished">Game Finished!</div> -->
+      <a class="index-button" href="/deck/<%= @deck.id %>/play">Go to Results</a>
+      <% else %>
+      <a class="index-button" href="/deck/<%= @deck.id %>/play">Next Question</a>
+      <%end%>
+    </div>
+</div>

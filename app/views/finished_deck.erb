@@ -1,0 +1,29 @@
+<div class="finish-statistics">
+<% @correct_guesses = @round.guesses.select { |guess| guess.correct == true } %>
+<% @incorrect_guesses = @round.guesses.select { |guess| guess.correct == false } %>
+
+<div class="stats"><h1>Congratulations!<span> You have finished playing the <%= @deck.name %> deck.</span></h1></div>
+<div class="stats-left">
+</div>
+<div class="stats-right">
+  <h2 class="round-stats">Round statistics</h2>
+  <h3>Correct: <%= @correct_guesses.count %>, <%= (@correct_guesses.count / @round.guesses.count.to_f * 100).to_i %>%</h3>
+  <a class="show-correct" href="">Show</a>
+  <a class="show-correct inactive" href="">Hide</a>
+    <ul class="correct-list inactive">
+      <% @correct_guesses.each do |guess| %>
+      <li>Question: <%= guess.card.question %></li>
+      <li>Answer: <%= guess.card.answer %></li><br>
+      <% end %>
+    </ul>
+  <h3>Incorrect: <%= @incorrect_guesses.count %>, <%= (@incorrect_guesses.count / @round.guesses.count.to_f * 100).to_i %>%</h3>
+  <a class="show-incorrect" href="">Show</a>
+  <a class="show-incorrect inactive" href="">Hide</a>
+    <ul class="incorrect-list inactive">
+      <% @incorrect_guesses.each do |guess| %>
+      <li>Question: <%= guess.card.question %></li>
+      <li>Answer: <%= guess.card.answer %></li><br>
+      <% end %>
+    </ul>
+</div>
+</div>

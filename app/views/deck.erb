@@ -1,5 +1,12 @@
+<div class="before-game">
+
 <h1><%= @deck.name %></h1>
-<h4>Number of Cards: <%= @deck.cards.count %></h4>
-<span>Times played: <%= @rounds.count %></span>
+<h2>Number of Cards: <%= @deck.cards.count %></h2>
+<h2>Times played: <%= @rounds.count %></h2>
 <br/>
-<a href="/deck/<%= @deck.id %>/play"><%= @new_game ? "Play" : "Continue" %></a>
+<ul><li>
+<form action="/deck/<%= @deck.id %>/play" method="get"><input class="index-button" type="submit" value="<%= @new_game ? "Play" : "Continue" %>"></form>
+</li>
+</ul>
+
+</div>

@@ -1,11 +1,17 @@
-<h1><%= @deck.name %></h1>
-<% @notifications.each do |notif| %>
-	<h2><%= notif %></h2>
-<% end %>
-<span><%= @progress %>% Complete</span>
-<h3><%= @card.question %></h3>
+<div class="tv">
+  <h2><%= @deck.name %></h2>
 
-<form action="/card/<%= @card.id %>/answer" method="post">
-	<input type="text" name="answer" />
-	<input type="submit" value="Answer" />
-</form>
+  <% @notifications.each do |notif| %>
+    <h2><%= notif %></h2>
+  <% end %>
+
+  <div class="progress"><%= @progress %>% Complete</div>
+  <div><h3><%= @card.question %></h3></div>
+  <div id="answer_box">
+    <form id="answer" action="/card/<%= @card.id %>/answer" method="post">
+      <span id="whatis">What is <input type="text" name="answer" /> ? </span>
+      <input class="index-button" type="submit" value="Submit" />
+    </form>
+  </div>
+</div>
+

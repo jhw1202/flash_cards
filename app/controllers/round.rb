@@ -53,6 +53,7 @@ post '/card/:id/answer' do
   @card = Card.find(params[:id])
   @deck = @card.deck
   @round = Round.find_by_user_id_and_deck_id(@current_user, @deck)
+  @progress = ((@round.guesses.count + 1) / @deck.cards.count.to_f * 100).to_i
   @guess = Guess.new(round: @round, card: @card, correct: false)
   if Levenshtein.normalized_distance(@card.answer, params[:answer]) < 0.42 || params[:answer].to_i == 42
     @guess.correct = true

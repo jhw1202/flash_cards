@@ -1,4 +1,6 @@
-<h1><%= @user.name %></h1>
+<div class="before-game">
+
+<h1>Welcome, <%= @user.name %></h1>
 
 <h2>Choose a Deck</h2>
 <ul>
@@ -10,4 +12,9 @@
 	<% deck_selection.each do |deck| %>
 	<li><a href="/deck/<%= deck.id %>"><%= deck.name %></a></li>
 	<% end %>
+  <li><br><form action="/home" method="get"><input class="index-button" type="submit" value="Refresh List"></form></li>
 </ul>
+
+
+
+</div>

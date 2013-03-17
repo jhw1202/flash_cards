@@ -7,17 +7,17 @@ $(document).ready(function() {
 
   $('.show-correct').on('click', function(e){
     e.preventDefault();
-    $('.correct-list').toggle("blind", 500);
+    $('.correct-list').toggle();
     $('.show-correct').removeClass('inactive');
     $(this).addClass('inactive');
   });
 
   $('.show-incorrect').on('click', function(e) {
     e.preventDefault();
-    $('.incorrect-list').toggle("blind", 250);
+    $('.incorrect-list').toggle();
     $('.show-incorrect').removeClass('inactive');
     $(this).addClass('inactive');
   });
 
-
+  $
 });

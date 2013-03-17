@@ -1,0 +1,34 @@
+<div class="finish-statistics">
+
+<h1><%= @current_user.name %>'s Statistics</h1>
+
+<div class="stats-left"></div>
+<div class="stats-right">
+
+<table class="stats-table" cellspacing="30">
+  <tr>
+    <th class="left">Deck</th>
+    <th class="left">Date</th>
+    <th>Correct</th>
+    <th>Incorrect</th>
+    <th>Total</th>
+    <th>% Correct</th>
+    <!-- <th>% Incorrect</th> --> 
+    <!-- <th></th> -->
+  </tr>
+
+  <% @rounds.each do |round| %>
+  <tr>
+    <td class="left"><%= round.deck.name %></td>
+    <td class="left"><%= round.guesses.last.updated_at.strftime('%m/%d/%Y') %></td>
+    <td><%= @correct = round.guesses.select { |guess| guess.correct == true }.count %></td>
+    <td><%= @incorrect = round.guesses.select { |guess| guess.correct == false }.count %></td>
+    <td><%= @total = round.guesses.count %></td>
+    <td><%= (@correct / @total.to_f * 100).to_i %>%</td>
+<!--     <td><%= (@incorrect / @total.to_f * 100).to_i %>%</td>
+ -->    <!-- <td><a class="#{round.id}" href="">Show details</td> -->
+  </tr>
+  <%end%>
+</table>
+</div>
+</div>
