@@ -2,7 +2,7 @@
   <h2><%= @deck.name %></h2>
 
   <% @notifications.each do |notif| %>
-    <h2><%= notif %></h2>
+    <h2 class="notif"><%= notif %></h2>
   <% end %>
 
   <div class="progress"><%= @progress %>% Complete</div>

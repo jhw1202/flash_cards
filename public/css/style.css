@@ -9,6 +9,7 @@
   background-attachment: fixed;
 }
 
+
 table {
   text-align: left;
 }
@@ -236,6 +237,12 @@ div.progress {
   color: white;
   font-family: jeopardy_clue;
 }
+
+/*h1.main-title {
+  font-family: jeopardy_bold;
+  text-align: center;
+  font-size: 3.3em;
+}*/
 
 h1.main-header {
   font-family: jeopardy_bold;
